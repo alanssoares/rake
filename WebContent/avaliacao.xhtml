@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+	<title>eCongress</title>
+	<!-- <link rel="stylesheet" type="text/css" href="css/teste.css"/> -->
+	<link rel="shortcut icon" type="image/x-icon" href="img/econgress.ico" />
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/mask.js"></script>
+</h:head>
+
+<h:body>
+	<div id="tudo">
+		<table cellpadding="0" cellspacing="0" align="center">
+			<tr>
+				<td>
+					<div id="top_pg">
+						<img id="logo" src="img/banner.png" />
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div id="conteudo">
+						<fieldset>
+							<legend>
+								<h4>Avaliação do Artigo</h4>
+							</legend>
+							<h:form>
+					Título do artigo:
+					<h:outputText value="#{param.titulo}" id="titulo"></h:outputText>
+								<br />
+					Nome do revisor:
+					<h:outputText value="#{param.revisor}" id="revisor"></h:outputText>
+								<br />
+					Nota:
+					<h:inputText class="nota" value="#{avaliacaoBean.avaliacao.nota}"
+									id="nota" required="true"
+									requiredMessage=" Este campo é obrigatório!" maxlength="2"
+									size="8" />
+								<h:message for="email" style="color: red" />
+								<br />
+					Comentario:
+					<br />
+								<h:inputTextarea rows="10" cols="100" id="comentario"
+									value="#{avaliacaoBean.comentario}"></h:inputTextarea>
+								<br />
+								<br />
+								<center>
+									<h:commandButton value="Confirmar"
+										action="#{avaliacaoBean.confirma}" ajax="false" />
+									<h:commandButton value="Cancelar"
+										action="#{avaliacaoBean.cancelar}" ajax="false" />
+								</center>
+
+							</h:form>
+
+						</fieldset>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div id="rodape">
+						<img id="logo" src="img/space.png" />
+						<fieldset>
+							<center>
+								<font size="3"><b>eCongress</b> - Todos os direitos
+									reservados. Desenvolvido pela equipe <a
+									href="http://www.raylanss.com.br/rake">RAKe</a>.</font>
+							</center>
+						</fieldset>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+</h:body>
+
+</html>

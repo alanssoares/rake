@@ -1,0 +1,45 @@
+fieldset{
+	margin-top: 122px;
+	border-radius: 5px;
+	width: 700px;
+	margin: auto;
+	border-color: #808080 solid;
+	box-shadow:3px 3px 7px black;
+}
+
+fieldset legend {
+	padding-top: 10px;
+
+}
+
+#conteudo{
+	border-top: 122px;
+}
+
+#logo{
+	float:left;
+	position: absolute;
+}
+#title_pg{
+	position:absolute;
+	margin-left: 121px;
+	float: left;
+	min-width: 470px;
+	max-width: 800px;
+	max-height: 54px;
+}
+#top_pg{
+	height: 122px;
+}
+
+.login{
+	border-radius: 5px;
+	width: 300px;
+	margin: auto;
+	border-color: #808080 solid;
+	box-shadow:3px 3px 7px black;
+}
+
+body{
+	background:url("img/nav_bg.jpg")repeat-x scroll center top transparent;
+}

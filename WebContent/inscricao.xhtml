@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>eCongress</title>
+	<link rel="shortcut icon" type="image/x-icon" href="img/econgress.ico" />
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/mask.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.date').mask('99/99/9999');
+			$('.dateCartao').mask('99/9999');
+			$('.numCartao').mask('9999.9999.9999.9999');
+			$('.cep').mask('99999-999');
+			$('.tel').mask('(99)9999-9999');
+		});
+	</script>
+	<script>
+		function confirmacao() {
+			alert("Sua inscrição foi realizada com sucesso! \n Você receberá um e-mail de confirmação!");
+			
+		}
+	</script>
+</h:head>
+
+<h:body>
+	<div id="tudo">
+		<table cellpadding="0" cellspacing="0" align="center">
+			<tr>
+				<td>
+					<div id="top_pg">
+						<img id="logo" src="img/banner.png" />
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div id="congresso">
+						<h:form>
+							<fieldset>
+								<legend>
+									<h4>Dados Pessoais</h4>
+								</legend>
+								Nome:
+								<h:inputText  id="nome" required="true"
+									requiredMessage=" Este campo é obrigatório!" maxlength="50"
+									size="70" value="#{participanteBean.participante.nome}" />
+								<h:message for="nome" style="color: red" />
+								<br /> Email:
+								<h:inputText id="email" required="true"
+									requiredMessage=" Este campo é obrigatório!" maxlength="50"
+									size="50" value="#{participanteBean.participante.email}" />
+								<h:message for="email" style="color: red" />
+								<br /> Telefone Fixo:
+								<h:inputText id="telefone_fixo" required="true"
+									requiredMessage=" Este campo é obrigatório!" size="13"
+									class="tel"
+									value="#{participanteBean.participante.telefone_fixo}" />
+								<h:message for="telefone_fixo" style="color: red" />
+								<br /> Celular:
+								<h:inputText id="celular" required="true"
+									requiredMessage=" Este campo é obrigatório!" class="tel"
+									maxlength="13" size="13"
+									value="#{participanteBean.participante.celular}" />
+								<h:message for="celular" style="color: red" />
+								<br /> Local de Emprego:
+								<h:inputText id="localemprego" required="true"
+									requiredMessage=" Este campo é obrigatório!" maxlength="50"
+									size="50"
+									value="#{participanteBean.participante.local_de_emprego}" />
+								<h:message for="localemprego" style="color: red" />
+								<br />
+							</fieldset>
+
+							<fieldset>
+								<legend>
+									<h4>Endereço</h4>
+								</legend>
+								Rua:
+								<h:inputText id="rua" required="true"
+									requiredMessage=" Este campo é obrigatório!" maxlength="50"
+									size="50" value="#{participanteBean.endereco.rua}" />
+								<h:message for="rua" style="color: red" />
+								<br /> Bairro:
+								<h:inputText id="bairro" required="true"
+									requiredMessage=" Este campo é obrigatório!" maxlength="40"
+									size="40"
+									value="#{participanteBean.endereco.bairro}" />
+								<h:message for="bairro" style="color: red" />
+								<br /> Numero:
+								<h:inputText id="numero" required="true"
+									requiredMessage=" Este campo é obrigatório!" maxlength="4"
+									size="4"
+									value="#{participanteBean.endereco.numero}" />
+								<h:message for="numero" style="color: red" />
+								<br /> Complemento:
+								<h:inputText id="complemento" size="40" maxlength="40"
+									value="#{participanteBean.endereco.complemento}" />
+								<br /> CEP:
+								<h:inputText id="cep" required="true"
+									requiredMessage=" Este campo é obrigatório!" class="cep"
+									size="9" value="#{participanteBean.endereco.cep}" />
+								<h:message for="cep" style="color: red" />
+								<br />
+							</fieldset>
+
+							<fieldset>
+								<legend>
+									<h4>Cartão de Crédito</h4>
+								</legend>
+								Numero:
+								<h:inputText id="numeroCartao" required="true" maxlength="16"
+									requiredMessage=" Este campo é obrigatório!" size="16"
+									class="numCartao"
+									value="#{participanteBean.participante.numero_cartao}" />
+								<h:message for="numeroCartao" style="color: red" />
+								<br /> Data Vencimento:
+								<h:inputText id="dataVenc" required="true"
+									requiredMessage=" Este campo é obrigatório!" class="dateCartao"
+									size="10"
+									value="#{participanteBean.participante.vencimento_cartao}" />
+								<h:message for="dataVenc" style="color: red" />
+								<br /> Marca:
+								<h:selectOneMenu
+									value="#{participanteBean.participante.marca_cartao}"
+									id="idMarca" name="idMarca" required="true"
+									requiredMessage=" Este campo é obrigatório!">
+									<f:selectItem itemValue="#{null}" itemLabel="Selecione"></f:selectItem>
+									<f:selectItem itemValue="VISA" itemLabel="VISA"></f:selectItem>
+									<f:selectItem itemValue="MASTER CARD" itemLabel="MASTER CARD"></f:selectItem>
+									<f:selectItem itemValue="ELO" itemLabel="ELO"></f:selectItem>
+								</h:selectOneMenu>
+								<h:message for="idMarca" style="color: red" />
+								<br />
+							</fieldset>
+
+							<fieldset>
+								<legend>
+									<h4>Congresso</h4>
+								</legend>
+								<h:outputText value="Selecione o congresso: " />
+								<h:selectOneMenu
+									value="#{participanteBean.participante.congresso}"
+									id="congresso" required="true"
+									requiredMessage=" Este campo é obrigatório!">
+									<f:selectItem itemValue="#{null}" itemLabel="Selecione"></f:selectItem>
+									<f:selectItems value="#{congressoBean.congressos}"
+										var="congresso" itemLabel="#{congresso.nome}"
+										itemValue="#{congresso.nome}" />
+								</h:selectOneMenu>
+								<h:message for="congresso" style="color: red" />
+							</fieldset>
+
+							<fieldset>
+								<legend>
+									<h4>Revisor Voluntário</h4>
+								</legend>
+								<h:selectBooleanCheckbox id="idRevisor" rendered="true"
+									value="#{participanteBean.participante.revisor}"></h:selectBooleanCheckbox>
+								Desejo ser revisor de artigos do congresso.
+							</fieldset>
+
+							<fieldset>
+								<legend>
+									<h4>Confirmação</h4>
+								</legend>
+								
+								<center>
+									<h:commandButton value="Confirmar"
+										action="#{participanteBean.grava}" ajax="false"
+										onclick="confirmacao()"></h:commandButton>
+									<h:commandButton value="Cancelar"
+										immediate="true" action="#{participanteBean.cancelar}" ajax="false"></h:commandButton>
+								</center>
+							</fieldset>
+
+						</h:form>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div id="rodape">
+						<img id="logo" src="img/space.png" />
+						<fieldset>
+							<center>
+								<font size="3"><b>eCongress</b> - Todos os direitos
+									reservados. Desenvolvido pela equipe <a
+									href="http://www.raylanss.com.br/rake">RAKe</a>.</font>
+							</center>
+						</fieldset>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+</h:body>
+
+</html>

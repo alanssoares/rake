@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config
+    xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
+    version="2.2">
+    
+<managed-bean>
+	<managed-bean-name>participanteBean</managed-bean-name>
+	<managed-bean-class>com.bean.ParticipanteBean</managed-bean-class>
+	<managed-bean-scope>request</managed-bean-scope>
+</managed-bean>
+
+<managed-bean>
+	<managed-bean-name>gerenciadorBean</managed-bean-name>
+	<managed-bean-class>com.bean.GerenciadorBean</managed-bean-class>
+	<managed-bean-scope>request</managed-bean-scope>
+</managed-bean>
+
+<managed-bean>
+	<managed-bean-name>artigoBean</managed-bean-name>
+	<managed-bean-class>com.bean.ArtigoBean</managed-bean-class>
+	<managed-bean-scope>view</managed-bean-scope>
+</managed-bean>
+
+<managed-bean>
+	<managed-bean-name>avaliacaoBean</managed-bean-name>
+	<managed-bean-class>com.bean.AvaliacaoBean</managed-bean-class>
+	<managed-bean-scope>request</managed-bean-scope>
+</managed-bean>
+
+<managed-bean>
+	<managed-bean-name>congressoBean</managed-bean-name>
+	<managed-bean-class>com.bean.CongressoBean</managed-bean-class>
+	<managed-bean-scope>request</managed-bean-scope>
+</managed-bean>
+
+</faces-config>

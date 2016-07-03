@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+	<title>eCongress</title>
+	<!-- 	<link rel="stylesheet" type="text/css" href="css/teste.css"/> -->
+	<link rel="shortcut icon" type="image/x-icon" href="img/econgress.ico" />
+</h:head>
+
+<h:body>
+	<div id="tudo">
+		<table cellpadding="0" cellspacing="0" align="center">
+			<tr>
+				<td>
+					<div id="top_pg">
+						<img id="logo" src="img/banner.png" />
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div id="congresso">
+						<h:form id="consultasForm" acceptcharset="ISO-8859-1" lang="pt_BR">
+							<fieldset>
+								<legend>
+									<h4>Dados dos Integrantes</h4>
+								</legend>
+								Número de Inscrição dos Autores <br /> 1º:
+								<h:inputText required="true"
+									requiredMessage=" Este campo é obrigatório!" maxlength="8"
+									size="10" value="#{artigoBean.inscricao1}" id="inscricao1"></h:inputText>
+								<h:message for="inscricao1" style="color: red" />
+								<br /> 2º:
+								<h:inputText maxlength="8" size="10"
+									value="#{artigoBean.inscricao2}" id="inscricao2"></h:inputText>
+								<br /> 3º:
+								<h:inputText maxlength="8" size="10"
+									value="#{artigoBean.inscricao3}" id="inscricao3"></h:inputText>
+							</fieldset>
+
+							<fieldset>
+								<legend>
+									<h4>Congresso</h4>
+								</legend>
+								<h:outputText value="Selecione o congresso: " />
+								<h:selectOneMenu value="#{artigoBean.congresso}" id="congresso"
+									required="true" requiredMessage=" Este campo é obrigatório!">
+									<f:selectItem itemValue="#{null}" itemLabel="Selecione"></f:selectItem>
+									<f:selectItems value="#{congressoBean.congressos}"
+										var="congresso" itemLabel="#{congresso.nome}"
+										itemValue="#{congresso.nome}" />
+								</h:selectOneMenu>
+								<h:message for="congresso" style="color: red" />
+							</fieldset>
+
+							<fieldset>
+								<legend>
+									<h4>Artigo</h4>
+								</legend>
+								Título
+								<h:inputText required="true"
+									requiredMessage=" Este campo é obrigatório!" maxlength="50"
+									size="70" value="#{artigoBean.artigo.titulo}" id="titulo"></h:inputText>
+								<h:message for="titulo" style="color: red" />
+								<br /> Resumo
+								<p:editor id="editor" value="#{artigoBean.artigo.resumo}"
+									width="800" />
+							</fieldset>
+							
+							<fieldset>
+								<legend>
+									<h4>Carregar arquivo</h4>
+								</legend>
+								<p:fileUpload fileUploadListener="#{artigoBean.doUpload}"
+									update="messages" allowTypes="/(\.|\/)(pdf)$/" />
+								<p:growl id="messages" showDetail="true" />
+								<br />
+								<center>
+									<h:commandButton value="Confirmar"
+										action="#{artigoBean.confirmar}" update="messages"></h:commandButton>
+									<h:commandButton value="Cancelar" immediate="true"
+										action="#{artigoBean.cancelar}"></h:commandButton>
+								</center>
+							</fieldset>
+						</h:form>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div id="rodape">
+						<img id="logo" src="img/space.png" />
+						<fieldset>
+							<center>
+								<font size="3"><b>eCongress</b> - Todos os direitos
+									reservados. Desenvolvido pela equipe <a
+									href="http://www.raylanss.com.br/rake">RAKe</a>.</font>
+							</center>
+						</fieldset>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+</h:body>
+
+</html>
